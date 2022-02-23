@@ -1,0 +1,19 @@
+<svg id="Component_4_2" data-name="Component 4 – 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="681" height="49" viewBox="0 0 681 49">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="66" height="15" fill="none"/>
+    </clipPath>
+  </defs>
+  <path id="Rectangle_139" data-name="Rectangle 139" d="M10,0H671a10,10,0,0,1,10,10V49a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V10A10,10,0,0,1,10,0Z" fill="#2e3440"/>
+  <g id="Repeat_Grid_1" data-name="Repeat Grid 1" transform="translate(35 15)" clip-path="url(#clip-path)">
+    <g transform="translate(-35 -15)">
+      <circle id="Ellipse_95" data-name="Ellipse 95" cx="7.5" cy="7.5" r="7.5" transform="translate(35 15)" fill="#d8dee9"/>
+    </g>
+    <g transform="translate(-12 -15)">
+      <circle id="Ellipse_95-2" data-name="Ellipse 95" cx="7.5" cy="7.5" r="7.5" transform="translate(35 15)" fill="#d8dee9"/>
+    </g>
+    <g transform="translate(11 -15)">
+      <circle id="Ellipse_95-3" data-name="Ellipse 95" cx="7.5" cy="7.5" r="7.5" transform="translate(35 15)" fill="#d8dee9"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,123 @@
+/***********************************************************************/
+/******** BUTTONS ******************************************************/
+/***********************************************************************/
+button:focus {outline: 0 !important;}
+
+.btn {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    .font-size(18);
+    line-height: 1.5;
+    font-weight: normal;
+    text-transform: none;
+    background-color: transparent;
+    letter-spacing: 0px;
+    border: none;
+    border-radius: 0px;
+    padding: 0px 15px;
+    .transition();
+    cursor: pointer;
+
+    .b (lg; {
+        .font-size(16);
+    })
+}
+
+.btn--icon-right {
+    i, svg {
+        margin-left: @baseline*0.5;
+    }
+}
+
+.btn--icon-left {
+    i, svg {
+        margin-right: @baseline*0.5;
+    }
+}
+
+/* Primary Button */
+.btn--primary, .btn--primary:visited {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 50px;
+    .border-radius();
+    background-color: @secondary-color;
+    border: none;
+    color: @primary-color;
+    box-shadow: none;
+    min-width: 175px;
+    font-weight: @weight-medium;
+
+    /* Hover */
+
+    &:hover, &:active, &:not(:disabled):not(.disabled):active {
+        border: none;
+        color: @white;
+        background-color: @accent-color-light;
+        .box-shadow-secondary();
+    }
+
+    /* Click */
+
+    &:focus {
+        border: none;
+        color: @white;
+        background-color: @accent-color-light;
+        .box-shadow();
+    }
+}
+
+.btn--secondary, .btn--secondary:visited {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 50px;
+    .border-radius();
+    background-color: @white;
+    border: 3px solid @primary-color;
+    color: @primary-color;
+    box-shadow: none;
+    min-width: 175px;
+    font-weight: @weight-medium;
+
+    /* Hover */
+
+    &:hover, &:active, &:not(:disabled):not(.disabled):active {
+        border-color: @accent-color-light;
+        color: @accent-color-light;
+        background-color: @white;
+        .box-shadow-secondary();
+    }
+
+    /* Click */
+
+    &:focus {
+        border: none;
+        color: @accent-color-light;
+        background-color: @white;
+        .box-shadow();
+    }
+}
+
+@keyframes pulse-border {
+    0% {
+        -webkit-transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+        opacity: 0;
+    }
+}

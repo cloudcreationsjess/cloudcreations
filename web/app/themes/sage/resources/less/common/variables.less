@@ -1,0 +1,134 @@
+/***********************************************************************/
+/* VARIABLES ==========================================================*/
+/***********************************************************************/
+
+/***********************************************************************/
+/*==== SITE COLORS ====================================================*/
+/***********************************************************************/
+/* Primary Color */
+@primary-color: #4C566A;
+@primary-color-light: #ECEFF4;
+@primary-color-dark: #4C566A;
+
+/* Secondary Color */
+@secondary-color: #88C0D0;
+@secondary-color-light: #88C0D0;
+@secondary-color-dark: #88C0D0;
+
+/* Accent Color */
+@accent-color: #BF616A;
+@accent-color-light: #D08770;
+@accent-color-dark: #BF616A;
+
+/* Text Color */
+@text-color-primary: #7B88A1;
+@text-color-secondary: #4C566A;
+@text-color-light: #F8F9FB; // Fonts on a dark background
+@text-color-dark: #263238; // Fonts on a light background
+/* Body Color (default text color) */
+@body-color: #7B88A1;
+
+/* Background Color (For page. Typically white or grey) */
+@background-color: #F8F9FB;
+@background-color-light: #E5E9F0;
+@background-color-dark: #2E3440;
+
+/* Gradient Colors */
+@gradient-color-dark: #E5E9F0;
+@gradient-color-light: @white;
+
+/* Overlay Color (typically used for image overlays) */
+@overlay-color: fade(#37474F, 40%);
+
+/* Link color <a> */
+@link-color: @primary-color;
+@link-hover-color: @primary-color;
+
+/* Input Place Holder Color */
+@input-placeholder-color: @text-color-primary;
+
+/* Border color (default) */
+@border-color: #d7d7d7;
+
+/*********************************************************************/
+/*==== DEFAULT COLORS ================================================*/
+/***********************************************************************/
+/* Shades */
+@white: #ffffff;
+@grey: #808080;
+@black: #000000;
+@red-light: #ed6c63;
+@red-dark: #bb2011;
+@danger-color: @red-dark;
+@success-color: #28a745;
+
+/* Social Media Colors */
+@color-twitter: #00aced;
+@color-facebook: #3b5998;
+@color-pinterest: #cb2027;
+@color-linkedin: #007bb6;
+@color-youtube: #bb0000;
+@color-vimeo: #aad450;
+@color-tumblr: #32506d;
+@color-instagram: #517fa4;
+@color-flickr: #ff0084;
+@color-wordpress: #21759b;
+@color-stumbleupon: #EB4823;
+@color-soundcloud: #ff3a00;
+
+
+/***********************************************************************/
+/*==== TYPOGRAPHY =====================================================*/
+/***********************************************************************/
+
+// FONT LOADING EXAMPLES ===============================================
+
+// OPENTYPE ------------------------------------------------------------
+//@font-face {
+//  font-family: 'Archer';
+//  src: url(fonts/Archer-Bold-Pro.otf) format('opentype');
+//}
+
+// TRUETYPE ------------------------------------------------------------
+//@font-face {
+//  font-family: 'Roboto';
+//  src: url(fonts/Roboto-Light.ttf) format('truetype');
+//}
+
+/* Font families */
+// Set from fonts loading above or in ../inc/enqueue.php
+// Some fonts have different font-families for different font weights. Set them here.
+
+@font-bold: 'Rubik', sans-serif;
+@font-medium: 'Rubik', sans-serif;
+@font-normal: 'Rubik', sans-serif;
+@font-light: 'Rubik', sans-serif;
+@font-script: 'Rubik', sans-serif;
+
+/* Font Weights */
+@weight-thin: 300;
+@weight-normal: 500;
+@weight-medium: 600;
+@weight-bold: 700;
+
+// Set font-family that will be used for titles, text, buttons, and nav.
+@font-heading: @font-bold;
+@font-text: @font-normal;
+@font-btn: @font-normal;
+@font-nav: @font-light;
+
+@font-awesome: 'Font Awesome 5 Free';
+
+/***********************************************************************/
+/*==== PAGE MEASUREMENTS ==============================================*/
+/***********************************************************************/
+@baseline: 20px;
+@bl: @baseline;
+
+/* Header (Main navigation) */
+@header-height: @baseline*4;
+
+/***********************************************************************/
+/*==== OTHER ==========================================================*/
+/***********************************************************************/
+@easing: all 0.2s ease-in-out;

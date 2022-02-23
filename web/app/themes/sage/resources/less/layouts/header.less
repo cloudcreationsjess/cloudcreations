@@ -1,0 +1,363 @@
+/***********************************************************************/
+/* HEADER
+/*
+/* Header styles. Main Nav etc
+/***********************************************************************/
+
+/********** MAIN MENU / MAIN NAV / MAIN HEADER **********************************************************/
+//noinspection LessResolvedByNameOnly
+#header {
+    width: 100%;
+    z-index: 999;
+
+    .current-menu-parent > a:before, .home.current-page-ancestor > a:before {
+        //left: 0 !important;
+        //right: 0 !important;
+    }
+
+    // Top Level Nav Link is being viewed
+    // |*HOME*| ABOUT | SERVICES +| CONTACT
+    .current-menu-item > a {
+        color: @text-color-primary!important;
+
+        &:before {
+            visibility: visible!important;
+            -webkit-transform: scaleX(1)!important;
+            transform: scaleX(1)!important;
+        }
+    }
+
+    // Main nav link has a sub page that is being viewed
+    // | HOME | ABOUT |*SERVICES +*| CONTACT
+    .current-page-ancestor > a {
+        //border-bottom: 2px solid @white;
+        //margin-top: -2px !important;
+    }
+
+    // Sub page is being viewed
+    // | HOME | ABOUT | SERVICES +| CONTACT
+    //               |    *-SUB* |
+    //              + --------- +
+    .sub-menu .current_page_item a:first-of-type {
+        //border-bottom: none !important;
+        //background: fade(@white, 10%);
+        //opacity: 1;
+    }
+}
+
+/********************************************************************************************************/
+/********** MENU **************************************************************************************/
+/****************************************************************************************************/
+// MAIN MENU (Menu before scroll) PRIMARY ===========================================================
+.header-primary {
+    z-index: 3;
+    margin-top: 0;
+    position: absolute !important;
+    top: 0px !important;
+    height: @header-height; // edit variable.less
+    width: 100%;
+    background: transparent;
+    .flex-row(space-between);
+    align-items: center;
+    .transition();
+    padding: 0px 15px;
+
+    .b(xs, {
+       padding: 0px 5px;
+    });
+
+    /* Branding (ie. Logo) */
+
+    #site-branding {
+        width: auto;
+        text-align: left;
+        position: relative;
+        z-index: 900;
+        height: @bl*2.5; // edit variable.less
+        .flex-column();
+
+        a {
+            height: 100%;
+        }
+
+        svg {
+            height: @bl*2.5;
+            width: auto;
+        }
+    }
+
+    /* Site Menu */
+
+    #site-menu {
+        line-height: @baseline*4;
+        transition: @easing;
+        width: 100%;
+
+        /* Main Menus / Upper-most Menu Links */
+
+        #main-menu {
+            .flex-row(flex-end);
+            width: 100%;
+            position: relative;
+            list-style-type: none;
+            margin-top: 0;
+
+            a { // Nav link
+                display: block;
+                .font-size(18);
+                cursor: pointer;
+                color: @text-color-primary;
+                font-weight: @weight-medium;
+                letter-spacing: 0;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 3px;
+                    border-radius: 4px;
+                    bottom: @bl;
+                    left: 0;
+                    background-color: @primary-color-light;
+                    visibility: hidden;
+                    -webkit-transform: scaleX(0);
+                    transform: scaleX(0);
+                    -webkit-transition: all 0.3s ease-in-out 0s;
+                    .transition();
+                }
+
+                &:hover {
+                    color: @text-color-primary;
+
+                    &:before {
+                        visibility: visible;
+                        -webkit-transform: scaleX(1);
+                        transform: scaleX(1);
+                    }
+                }
+            }
+
+            /* Set list to inline-block for horizontal menu */
+
+            & > li {
+                display: inline-block;
+                text-align: center;
+                position: relative;
+                line-height: @header-height; // edit variables.less. This line height is what makes the submenu show below the navbar.
+
+                // Add space to the nav items, except for last one
+                &:not(:last-of-type) {
+                    margin-right: @baseline*2;
+
+                    .b(md, {
+                        margin-right: 28px;
+                    });
+                }
+
+                // Style the Nav items with sub menus
+                &.menu-item-has-children > a {
+                    &:after {
+                        .fa-chevron-down();
+                        font-family: @font-awesome;
+                        margin-left: 10px;
+                    }
+                }
+
+                & > a {
+                    color: @text-color-primary;
+                }
+
+                &:hover {
+                    color: @text-color-primary;
+                }
+
+                /**** SUB MENU ****/
+                /* Show Sub menu on Parent Hover */
+
+                &:hover > ul.sub-menu {
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                /* Sub Menu Styles */
+
+                ul.sub-menu {
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+
+                    flex-direction: column;
+                    display: flex;
+                    justify-content: center;
+                    position: absolute;
+                    right: 0px;
+                    width: 100%;
+                    min-width: 200px; // Min width of the sub-nav
+                    line-height: @baseline;
+                    margin-top: 0px;
+                    padding: 20px 0;
+                    color: @secondary-color;
+                    background: @text-color-light;
+                    .box-shadow();
+                    text-align: right;
+                    list-style-type: none;
+
+                    li {
+                        transition: @easing;
+
+                        a {
+                            display: block;
+                            padding: 10px 20px 14px 20px;
+                            line-height: 1em;
+                            text-transform: capitalize;
+                            transition: @easing;
+                            color: @primary-color;
+
+                            &:hover {
+                                color: @secondary-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .site-nav-button-container {
+        text-align: right;
+        padding-top: 0px;
+
+        .nav-cta-btn {
+            border: 2px solid @primary-color;
+            color: @white;
+            text-transform: uppercase;
+            font-family: @font-text;
+            font-weight: @weight-thin;
+            .font-size(12);
+            padding: 0 @baseline*1.5;
+            height: @baseline*2;
+            line-height: 38px;
+            margin-right: @baseline;
+            .transition();
+        }
+
+        .nav-cta-btn:hover {
+            color: @primary-color;
+        }
+
+        .btn-nav, .btn-nav:visited {
+            background: transparent;
+            .border-radius();
+            color: @primary-color;
+            .font-size(18);
+            height: @baseline*2;
+            line-height: @baseline*2;
+            .transition();
+        }
+
+        .btn-nav:hover, .btn-nav:active {
+
+            .hamburger.is-active .hamburger-inner,
+            .hamburger.is-active .hamburger-inner::before,
+            .hamburger.is-active .hamburger-inner::after,
+            .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+
+            }
+        }
+
+        .btn-nav:focus {outline: 0;}
+
+        // Arrow
+        .btn-nav:not(.is-active):hover .hamburger-inner::before {
+            //width: 30px;
+            //top: -7px;
+            //transform: translate3d(-8px, 0, 0) rotate(-45deg) scale(0.7, 1);
+            background-color: @text-color-primary;
+        }
+
+        .btn-nav:not(.is-active):hover .hamburger-inner::after {
+            //width: 30px;
+            //top: 7px;
+            //transform: translate3d(-8px, 0, 0) rotate(45deg) scale(0.7, 1);
+            background-color: @text-color-primary;
+        }
+
+        .btn-nav:not(.is-active):hover .hamburger-inner {
+            //width: 30px;
+            //top: 7px;
+            //transform: translate3d(-8px, 0, 0) rotate(45deg) scale(0.7, 1);
+            background-color: @text-color-primary;
+        }
+    }
+}
+
+// Secondary Header Overrides (After Scroll) ==========================================================
+.header-primary.header-secondary {
+    position: fixed !important;
+    top: 0px !important;
+    height: 60px;
+    background: @white;
+    backdrop-filter: blur(6px);
+    .box-shadow-secondary();
+
+    #site-branding {
+    }
+
+    #site-menu {
+
+        /* Main Menus / Upper-most Menu Links */
+
+        #main-menu {
+            a {
+                //color: @secondary-color;
+
+                &:hover {
+                    //color: @primary-color !important;
+                }
+            }
+
+            & > li {
+                & > a {
+                    color: @text-color-primary;
+                }
+
+                &:hover {
+                    color: @text-color-primary !important;
+                }
+            }
+        }
+    }
+
+    .site-nav-button-container {
+        .nav-cta-btn {
+            border: 2px solid @primary-color !important;
+            color: @secondary-color !important;
+            .transition();
+        }
+
+        .nav-cta-btn:hover {
+            color: @primary-color !important;
+        }
+
+        .btn-nav:hover, .btn-nav:active {
+
+            .hamburger.is-active .hamburger-inner,
+            .hamburger.is-active .hamburger-inner::before,
+            .hamburger.is-active .hamburger-inner::after,
+            .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+                background-color: @primary-color;
+            }
+        }
+
+        .hamburger.is-active .hamburger-inner,
+        .hamburger.is-active .hamburger-inner::before,
+        .hamburger.is-active .hamburger-inner::after {
+            background-color: @primary-color;
+        }
+
+        .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+            background-color: @primary-color;
+        }
+    }
+}
+
